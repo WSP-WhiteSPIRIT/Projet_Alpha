@@ -9,5 +9,5 @@
  * @author INTI0222
  */
 public class test {
-    
+    private String test ;
 }
