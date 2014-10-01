@@ -21,21 +21,20 @@ public class AlgorithmeReparateur {
     private Reparateur reparateurSelectionne;
     
     
-    public Reparateur selectReparateurACharger(Marque marque, Departement departement){
+    public static Reparateur selectReparateurACharger(Marque marque, Departement departement){
         loadReparateursPotentiels();
         
         selectReparateursDisponibles(Marque marque, Departement departement);
         
-        selectBestReparateur();
-        return reparateurSelectionne;
+        return selectBestReparateur();
     }
     
-    public void loadReparateursPotentiels(){
+    private void loadReparateursPotentiels(){
         ManagerReparateur managerReparateur = new ManagerReparateur();
         reparateursPotentiels = managerReparateur.getAll();
     }
     
-    public void selectReparateursDisponibles(Marque marque, Departement departement){
+    private void selectReparateursDisponibles(Marque marque, Departement departement){
         List<Reparateur> reparateursMarque = new ArrayList<Reparateur>() ;
         for (Reparateur reparateur : reparateursPotentiels) {
             for (Marque marqueRep : reparateur.getMarques()) {
@@ -54,7 +53,7 @@ public class AlgorithmeReparateur {
         }
     }
     
-    public void selectBestReparateur(){
+    private Reparateur selectBestReparateur(){
         int chargeLibre=0;
         
         for (Reparateur reparateur : reparateursDisponibles) {
@@ -66,6 +65,8 @@ public class AlgorithmeReparateur {
         }
         
         if(chargeLibre==0)reparateurSelectionne=reparateursDisponibles.get(0);
+        
+        return reparateurSelectionne;
     }
 
 }
