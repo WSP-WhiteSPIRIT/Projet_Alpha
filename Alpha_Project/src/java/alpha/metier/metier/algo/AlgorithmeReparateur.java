@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package metier.metier.algo;
+package alpha.metier.metier.algo;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
