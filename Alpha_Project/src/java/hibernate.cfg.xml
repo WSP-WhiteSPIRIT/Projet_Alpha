@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_alpha</property>
-    <property name="hibernate.connection.username">root</property>
-  </session-factory>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_alpha</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="alpha.entite.model.Administrateur"/>
+        <mapping class="alpha.entite.model.Categorie"/>
+        <mapping class="alpha.entite.model.Client"/>
+        <mapping class="alpha.entite.model.ClientEntreprise"/>
+        <mapping class="alpha.entite.model.ClientParticulier"/>
+        <mapping class="alpha.entite.model.DepartementFrance"/>
+        <mapping class="alpha.entite.model.Marque"/>
+        <mapping class="alpha.entite.model.Modele"/>
+        <mapping class="alpha.entite.model.Forfait"/>
+        <mapping class="alpha.entite.model.Reparateur"/>
+        <mapping class="alpha.entite.model.Devis"/>
+        <mapping class="alpha.entite.model.ParticulierEntreprise"/>
+        <mapping class="alpha.entite.model.Reparation"/>
+    </session-factory>
 </hibernate-configuration>
