@@ -6,6 +6,10 @@
 
 package alpha.metier.metier.algo;
 
+import alpha.entite.model.DepartementFrance;
+import alpha.entite.model.Marque;
+import alpha.entite.model.Reparateur;
+import alpha.metier.modelManager.ReparateurManager;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,20 +25,20 @@ public class AlgorithmeReparateur {
     private Reparateur reparateurSelectionne;
     
     
-    public static Reparateur selectReparateurACharger(Marque marque, Departement departement){
+    public Reparateur selectReparateurACharger(Marque marque, DepartementFrance departement){
         loadReparateursPotentiels();
         
-        selectReparateursDisponibles(Marque marque, Departement departement);
+        selectReparateursDisponibles(marque, departement);
         
         return selectBestReparateur();
     }
     
     private void loadReparateursPotentiels(){
-        ManagerReparateur managerReparateur = new ManagerReparateur();
+        ReparateurManager managerReparateur = new ReparateurManager();
         reparateursPotentiels = managerReparateur.getAll();
     }
     
-    private void selectReparateursDisponibles(Marque marque, Departement departement){
+    private void selectReparateursDisponibles(Marque marque, DepartementFrance departement){
         List<Reparateur> reparateursMarque = new ArrayList<Reparateur>() ;
         for (Reparateur reparateur : reparateursPotentiels) {
             for (Marque marqueRep : reparateur.getMarques()) {
@@ -45,7 +49,7 @@ public class AlgorithmeReparateur {
         }
         
         for (Reparateur reparateur : reparateursMarque) {
-            for (Departement departementRep : reparateur.getDepartements()) {
+            for (DepartementFrance departementRep : reparateur.getDepartementFrances()) {
                 if(departementRep.equals(departement)){
                     reparateursDisponibles.add(reparateur);
                 }
