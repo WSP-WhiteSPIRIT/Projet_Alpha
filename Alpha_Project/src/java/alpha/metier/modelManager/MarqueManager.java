@@ -6,6 +6,7 @@
 
 package alpha.metier.modelManager;
 
+import alpha.entite.dao.MarqueDAO;
 import alpha.entite.model.Marque;
 import alpha.metier.modelManager.generique.GeneriqueManager;
 
@@ -16,7 +17,7 @@ import alpha.metier.modelManager.generique.GeneriqueManager;
 public class MarqueManager extends GeneriqueManager<Marque>{
 
     public MarqueManager() {
-        dao = new MarqueDao();
+        dao = new MarqueDAO();
     }
     
     

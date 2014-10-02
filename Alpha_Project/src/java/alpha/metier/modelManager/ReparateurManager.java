@@ -6,6 +6,7 @@
 
 package alpha.metier.modelManager;
 
+import alpha.entite.dao.ReparateurDAO;
 import alpha.entite.model.Reparateur;
 import alpha.metier.modelManager.generique.GeneriqueManager;
 
@@ -16,7 +17,7 @@ import alpha.metier.modelManager.generique.GeneriqueManager;
 public class ReparateurManager extends GeneriqueManager<Reparateur>{
 
     public ReparateurManager() {
-        dao = new ReparateurDao();
+        dao = new ReparateurDAO();
     }
     
 }

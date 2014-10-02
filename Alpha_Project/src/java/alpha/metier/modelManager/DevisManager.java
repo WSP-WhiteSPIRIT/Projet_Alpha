@@ -6,6 +6,7 @@
 
 package alpha.metier.modelManager;
 
+import alpha.entite.dao.DevisDAO;
 import alpha.entite.model.Devis;
 import alpha.metier.modelManager.generique.GeneriqueManager;
 
@@ -16,7 +17,7 @@ import alpha.metier.modelManager.generique.GeneriqueManager;
 public class DevisManager extends GeneriqueManager<Devis>{
 
     public DevisManager() {
-        dao = new DevisDao();
+        dao = new DevisDAO();
     }
     
 }

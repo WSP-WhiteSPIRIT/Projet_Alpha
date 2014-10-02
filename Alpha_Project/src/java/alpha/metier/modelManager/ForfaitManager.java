@@ -6,6 +6,7 @@
 
 package alpha.metier.modelManager;
 
+import alpha.entite.dao.ForfaitDAO;
 import alpha.entite.model.Forfait;
 import alpha.metier.modelManager.generique.GeneriqueManager;
 
@@ -16,7 +17,7 @@ import alpha.metier.modelManager.generique.GeneriqueManager;
 public class ForfaitManager extends GeneriqueManager<Forfait>{
 
     public ForfaitManager() {
-        dao = new ForfaitDao();
+        dao = new ForfaitDAO();
     }
     
 }

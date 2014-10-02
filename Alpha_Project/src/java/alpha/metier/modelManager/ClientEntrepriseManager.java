@@ -6,6 +6,7 @@
 
 package alpha.metier.modelManager;
 
+import alpha.entite.dao.ClientEntrepriseDAO;
 import alpha.entite.model.ClientEntreprise;
 import alpha.metier.modelManager.generique.GeneriqueManager;
 
@@ -16,7 +17,7 @@ import alpha.metier.modelManager.generique.GeneriqueManager;
 public class ClientEntrepriseManager extends GeneriqueManager<ClientEntreprise>{
 
     public ClientEntrepriseManager() {
-        dao= new ClientEntrepriseDao();
+        dao= new ClientEntrepriseDAO();
     }
     
 }

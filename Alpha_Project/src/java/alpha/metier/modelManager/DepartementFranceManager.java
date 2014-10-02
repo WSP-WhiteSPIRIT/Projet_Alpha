@@ -6,6 +6,7 @@
 
 package alpha.metier.modelManager;
 
+import alpha.entite.dao.DepartementFranceDAO;
 import alpha.entite.model.DepartementFrance;
 import alpha.metier.modelManager.generique.GeneriqueManager;
 
@@ -16,7 +17,7 @@ import alpha.metier.modelManager.generique.GeneriqueManager;
 public class DepartementFranceManager extends GeneriqueManager<DepartementFrance>{
 
     public DepartementFranceManager() {
-        dao = new DepartementFranceDao();
+        dao = new DepartementFranceDAO();
     }
        
 }

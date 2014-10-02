@@ -6,6 +6,7 @@
 
 package alpha.metier.modelManager;
 
+import alpha.entite.dao.CategorieDAO;
 import alpha.entite.model.Categorie;
 import alpha.metier.modelManager.generique.GeneriqueManager;
 
@@ -16,7 +17,7 @@ import alpha.metier.modelManager.generique.GeneriqueManager;
 public class CategorieManager extends GeneriqueManager<Categorie>{
 
     public CategorieManager() {
-        this.dao = new CategorieDao();
+        this.dao = new CategorieDAO();
     }
     
     
