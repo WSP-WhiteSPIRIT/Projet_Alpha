@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <div class="span9">
+        <div class="hero-unit">
+            <h:form>
+                <h:panelGrid id="form" columns="3" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="nom" value="Nom"/>
+                    <p:inputText label="nom" value="#{inscriptionManagedBean.clientParticulier.nom}" id="nom">
+                        <f:validator validatorId="NomInscriptionValidator"/>
+                    </p:inputText>
+                    <p:messages    for="nom" showDetail="true" autoUpdate="true"/>
+
+                    <p:outputLabel for="prenom" value="Prenom"/>
+                    <p:inputText label="prenom" value="#{inscriptionManagedBean.clientParticulier.prenom}" id="prenom">
+                        <f:validator validatorId="PrenomInscriptionValidator"/>
+                    </p:inputText>
+                    <p:messages    for="prenom" showDetail="true" autoUpdate="true"/>
+
+                    <p:outputLabel for="mail" value="Mail"/>
+                    <p:inputText label="mail" value="#{inscriptionManagedBean.clientParticulier.mail}" id="mail">
+                        <f:validator validatorId="MailInscriptionValidator"/>
+                    </p:inputText>
+                    <p:messages    for="mail" showDetail="true" autoUpdate="true"/>
+
+                    <p:outputLabel for="telephone" value="Telephone"/>
+                    <p:inputText label="telephone" value="#{inscriptionManagedBean.clientParticulier.telephone}" id="telephone">
+                        <f:validator validatorId="TelephoneInscriptionValidator" />
+                    </p:inputText>
+                    <p:messages    for="telephone" showDetail="true" autoUpdate="true"/>
+
+                    <p:outputLabel for="adresse" value="Adresse"/>
+                    <p:inputText label="adresse" value="#{inscriptionManagedBean.clientParticulier.adresse}" id="adresse">
+                        <f:validator validatorId="AdresseInscriptionValidator"/>
+                    </p:inputText>
+                    <p:messages    for="adresse" showDetail="true" autoUpdate="true"/>
+
+                    <p:outputLabel for="codepostal" value="Code Postal"/>
+                    <p:inputText label="codepostal" value="#{inscriptionManagedBean.clientParticulier.codepostal}" id="codepostal">
+                        <f:validator validatorId="CodePostalInscriptionValidator"/>
+                    </p:inputText>
+                    <p:messages    for="codepostal" showDetail="true" autoUpdate="true"/>
+
+                    <p:outputLabel for="ville" value="Ville"/>
+                    <p:inputText label="ville" value="#{inscriptionManagedBean.clientParticulier.ville}" id="ville">
+                        <f:validator validatorId="VilleInscriptionValidator"/>
+                    </p:inputText>
+                    <p:messages    for="ville" showDetail="true" autoUpdate="true"/>
+
+                    <p:outputLabel for="mdp" value="Mot de passe"/>
+                    <p:password feedback="true" label="mdp" value="#{inscriptionManagedBean.clientParticulier.mdp}" id="mdp">
+                        <f:validator validatorId="PasswordInscriptionValidator"/>
+                    </p:password>
+                    <p:messages for="mdp" showDetail="true" autoUpdate="true"/>
+
+                    <p:commandButton value="Valider"  actionListener="#{inscriptionManagedBean.enregistrer()}"/>
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </div>
+</ui:composition>
+

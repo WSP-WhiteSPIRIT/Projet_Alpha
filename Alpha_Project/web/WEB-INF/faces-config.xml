@@ -3,15 +3,48 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
               
     
     <!--- Validators pour le login -->
     <validator>
         <validator-id>validLogin</validator-id>
-        <validator-class>demo.ValidateLogin</validator-class>
+        <validator-class>alpha.vue.validatorCommun.ValidateLogin</validator-class>
     </validator>
     <validator>
         <validator-id>validMdp</validator-id>
-        <validator-class>demo.ValidateMDP</validator-class>
+        <validator-class>alpha.vue.validatorCommun.ValidateMDP</validator-class>
+    </validator>
+    <validator>
+        <validator-id>NomInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.pagesPubliques.validator.NomInscriptionValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>PrenomInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.pagesPubliques.validator.PrenomInscriptionValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>MailInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.validatorCommun.MailInscriptionValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>TelephoneInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.validatorCommun.TelephoneInscriptionValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>AdresseInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.validatorCommun.AdresseInscriptionValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>CodePostalInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.validatorCommun.CodePostalInscriptionValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>VilleInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.validatorCommun.VilleInscriptionValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>PasswordInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.validatorCommun.PasswordInscriptionValidator</validator-class>
     </validator>
 </faces-config>

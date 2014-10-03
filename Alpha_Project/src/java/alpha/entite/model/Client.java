@@ -34,7 +34,7 @@ public abstract class Client implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
     private Collection<Reparation> reparations;
 
     public int getId() {

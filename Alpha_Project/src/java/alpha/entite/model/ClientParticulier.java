@@ -5,6 +5,7 @@
  */
 package alpha.entite.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -21,7 +22,7 @@ import javax.persistence.OneToOne;
  * @author INTI0222
  */
 @Entity
-public class ClientParticulier extends Client {
+public class ClientParticulier extends Client implements Serializable{
 
     private static final long serialVersionUID = 1L;
 

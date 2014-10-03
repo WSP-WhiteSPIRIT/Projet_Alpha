@@ -70,10 +70,10 @@ public class Reparateur implements Serializable {
     @ManyToMany(mappedBy = "reparateurs")
     private Collection<Marque> marques;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reparateur")
     private Collection<Devis> devis;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reparateur")
     private Collection<Reparation> reparations;
 
     public Collection<Reparation> getReparations() {

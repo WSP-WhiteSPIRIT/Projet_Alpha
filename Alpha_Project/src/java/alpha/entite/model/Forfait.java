@@ -45,7 +45,7 @@ public class Forfait implements Serializable {
     @JoinColumn(name = "fk_id_modele", referencedColumnName = "id_modele")
     private Modele modele;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "forfait")
     private Collection<Reparation> reparations;
 
     public Collection<Reparation> getReparations() {

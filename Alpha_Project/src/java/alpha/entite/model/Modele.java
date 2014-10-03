@@ -54,7 +54,7 @@ public class Modele implements Serializable {
     @JoinColumn(name = "fk_id_marque", referencedColumnName = "id_marque")
     private Marque marque;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "modele")
     private Collection<Forfait> forfaits;
 
     public Collection<Forfait> getForfaits() {
