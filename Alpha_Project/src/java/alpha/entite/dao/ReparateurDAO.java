@@ -7,6 +7,7 @@ package alpha.entite.dao;
 
 import alpha.entite.dao.generiq.GeneriqDAO;
 import alpha.entite.model.Reparateur;
+import java.util.List;
 import org.hibernate.Session;
 
 /**
@@ -21,5 +22,16 @@ public class ReparateurDAO extends GeneriqDAO<Reparateur> {
 
     public ReparateurDAO(Session session) {
         super(session, Reparateur.class);
+    }
+    
+    public Reparateur getByMail(String mail){
+        List<Reparateur> list = execFreeHQLQuery("from Reparateur R where R.mail="+mail);
+        
+        if (!list.isEmpty()){
+            return list.get(0);
+        }
+        
+        return null;
+        
     }
 }

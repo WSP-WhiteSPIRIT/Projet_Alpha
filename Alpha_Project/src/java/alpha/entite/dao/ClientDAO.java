@@ -22,5 +22,5 @@ public class ClientDAO extends GeneriqDAO<Client> {
     public ClientDAO(Session session) {
         super(session, Client.class);
     }
-
-}
+    
+    }

@@ -20,4 +20,8 @@ public class ClientParticulierManager extends GeneriqueManager<ClientParticulier
         dao = new ClientParticulierDAO();
     }
     
+    public ClientParticulier getByMail(String mail){
+        ClientParticulierDAO daotmp = (ClientParticulierDAO) dao;
+        return daotmp.getByMail(mail);
+    }
 }
