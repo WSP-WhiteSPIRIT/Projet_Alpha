@@ -13,26 +13,26 @@
     </validator>
     <validator>
         <validator-id>MailInscriptionValidator</validator-id>
-        <validator-class>alpha.vue.pagesPubliques.validator.MailInscriptionValidator</validator-class>
+        <validator-class>alpha.vue.validatorCommun.MailInscriptionValidator</validator-class>
     </validator>
     <validator>
         <validator-id>TelephoneInscriptionValidator</validator-id>
-        <validator-class>alpha.vue.pagesPubliques.validator.TelephoneInscriptionValidator</validator-class>
+        <validator-class>alpha.vue.validatorCommun.TelephoneInscriptionValidator</validator-class>
     </validator>
     <validator>
         <validator-id>AdresseInscriptionValidator</validator-id>
-        <validator-class>alpha.vue.pagesPubliques.validator.AdresseInscriptionValidator</validator-class>
+        <validator-class>alpha.vue.validatorCommun.AdresseInscriptionValidator</validator-class>
     </validator>
     <validator>
         <validator-id>CodePostalInscriptionValidator</validator-id>
-        <validator-class>alpha.vue.pagesPubliques.validator.CodePostalInscriptionValidator</validator-class>
+        <validator-class>alpha.vue.validatorCommun.CodePostalInscriptionValidator</validator-class>
     </validator>
     <validator>
         <validator-id>VilleInscriptionValidator</validator-id>
-        <validator-class>alpha.vue.pagesPubliques.validator.VilleInscriptionValidator</validator-class>
+        <validator-class>alpha.vue.validatorCommun.VilleInscriptionValidator</validator-class>
     </validator>
     <validator>
         <validator-id>PasswordInscriptionValidator</validator-id>
-        <validator-class>alpha.vue.pagesPubliques.validator.PasswordInscriptionValidator</validator-class>
+        <validator-class>alpha.vue.validatorCommun.PasswordInscriptionValidator</validator-class>
     </validator>
 </faces-config>
