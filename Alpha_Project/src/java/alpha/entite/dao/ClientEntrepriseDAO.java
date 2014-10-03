@@ -7,6 +7,7 @@ package alpha.entite.dao;
 
 import alpha.entite.dao.generiq.GeneriqDAO;
 import alpha.entite.model.ClientEntreprise;
+import java.util.List;
 import org.hibernate.Session;
 
 /**
@@ -21,5 +22,16 @@ public class ClientEntrepriseDAO extends GeneriqDAO<ClientEntreprise> {
 
     public ClientEntrepriseDAO(Session session) {
         super(session, ClientEntreprise.class);
+    }
+    
+    public ClientEntreprise getByMail(String mail){
+        List<ClientEntreprise> list = execFreeHQLQuery("from ClientEntreprise CE where CE.mail="+mail);
+        
+        if (!list.isEmpty()){
+            return list.get(0);
+        }
+        
+        return null;
+        
     }
 }
