@@ -39,7 +39,7 @@ public class Marque implements Serializable {
     @Column(name = "libelle")
     private String libelle;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "marque")
     private Collection<Modele> modeles;
 
     @ManyToMany(fetch = FetchType.LAZY)
