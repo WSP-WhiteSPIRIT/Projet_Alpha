@@ -18,14 +18,20 @@
 
         <div class="container-fluid">
             <div class="row-fluid" >
-                <ui:insert name="sidebar">
-                    <ui:include src="/vue/template/sidebar.xhtml" />
-                </ui:insert>
+                <div class="span3">
 
-                <ui:insert name="content">
-                    
-                </ui:insert>
+                    <ui:insert name="sidebar">
+                        <ui:include src="/vue/template/sidebar.xhtml" />
+                    </ui:insert>
+                </div>
+                <div class="span9">
 
+                    <div class="hero-unit">
+                        <ui:insert name="content">
+
+                        </ui:insert>
+                    </div>
+                </div>
             </div>
 
 

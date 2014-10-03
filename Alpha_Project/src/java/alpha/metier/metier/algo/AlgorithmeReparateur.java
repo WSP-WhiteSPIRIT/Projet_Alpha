@@ -7,10 +7,15 @@
 package alpha.metier.metier.algo;
 
 import alpha.entite.model.DepartementFrance;
+import alpha.entite.model.Etat;
 import alpha.entite.model.Marque;
 import alpha.entite.model.Reparateur;
+import alpha.entite.model.Reparation;
+import alpha.metier.modelManager.ForfaitManager;
 import alpha.metier.modelManager.ReparateurManager;
+import alpha.metier.modelManager.ReparationManager;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -61,7 +66,7 @@ public class AlgorithmeReparateur {
         int chargeLibre=0;
         
         for (Reparateur reparateur : reparateursDisponibles) {
-            int chargeLibreRep=reparateur.getChargeMax()-reparateur.getCharge();
+            int chargeLibreRep=reparateur.getChargeMax()-getChargeReparateur(reparateur);
             if(chargeLibreRep>chargeLibre){
                 chargeLibre=chargeLibreRep;
                 reparateurSelectionne=reparateur;
@@ -71,6 +76,16 @@ public class AlgorithmeReparateur {
         if(chargeLibre==0)reparateurSelectionne=reparateursDisponibles.get(0);
         
         return reparateurSelectionne;
+    }
+
+    private int getChargeReparateur(Reparateur reparateur) {
+        int charge = 0;
+        for (Reparation reparation : reparateur.getReparations()) {
+            if(reparation.getEtat()!=Etat.REPARATION_TERMINEE&&reparation.getEtat()!=Etat.LIVRAISON){
+                charge++;
+            }
+        }
+        return charge;
     }
 
 }
