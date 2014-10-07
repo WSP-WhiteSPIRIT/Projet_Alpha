@@ -41,10 +41,11 @@ public class DepartementFrance implements Serializable {
     @Column(name = "numDep")
     private String numDep;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "DEPARTEMENT_REPARATEUR", joinColumns = {
-        @JoinColumn(name = "id_departementfrance")}, inverseJoinColumns = {
-        @JoinColumn(name = "id_reparateur")})
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "DEPARTEMENT_REPARATEUR", joinColumns = {
+//        @JoinColumn(name = "id_departementfrance")}, inverseJoinColumns = {
+//        @JoinColumn(name = "id_reparateur")})
+    @ManyToMany(mappedBy = "departementFrances")
     private Collection<Reparateur> reparateurs;
 
     public int getId() {

@@ -11,9 +11,12 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -64,10 +67,17 @@ public class Reparateur implements Serializable {
     @Column(name = "chargeMax")
     private int chargeMax;
 
-    @ManyToMany(mappedBy = "reparateurs")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "DEPARTEMENT_REPARATEUR", joinColumns = {
+        @JoinColumn(name = "id_departementfrance")}, inverseJoinColumns = {
+        @JoinColumn(name = "id_reparateur")})
+//    @ManyToMany(mappedBy = "reparateurs")
     private Collection<DepartementFrance> departementFrances;
 
-    @ManyToMany(mappedBy = "reparateurs")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "MARQUE_REPARATEUR", joinColumns = {
+        @JoinColumn(name = "id_marque")}, inverseJoinColumns = {
+        @JoinColumn(name = "id_reparateur")})
     private Collection<Marque> marques;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reparateur")
