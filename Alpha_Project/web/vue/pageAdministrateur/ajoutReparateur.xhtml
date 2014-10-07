@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <div class="hero-unit">
+        <h:form>
+            <h:panelGrid id="form" columns="3" style="margin-bottom:10px" cellpadding="5">
+                <p:outputLabel for="raisonSocial" value="raison Sociale"/>
+                <p:inputText label="raisonSocial" value="#{ajoutReparateurManaged.reparateur.raisonSociale}" id="raisonSocial">
+                    <f:validator validatorId="RaisonSocialeAjoutValidator"/>
+                </p:inputText>
+                <p:messages    for="raisonSocial" showDetail="true" autoUpdate="true"/>
+
+                <p:outputLabel for="mail" value="Mail"/>
+                <p:inputText label="mail" value="#{ajoutReparateurManaged.reparateur.mail}" id="mail">
+                    <f:validator validatorId="MailInscriptionValidator"/>
+                </p:inputText>
+                <p:messages    for="mail" showDetail="true" autoUpdate="true"/>
+
+                <p:outputLabel for="telephone" value="Telephone"/>
+                <p:inputText label="telephone" value="#{ajoutReparateurManaged.reparateur.telephone}" id="telephone">
+                    <f:validator validatorId="TelephoneInscriptionValidator" />
+                </p:inputText>
+                <p:messages    for="telephone" showDetail="true" autoUpdate="true"/>
+
+                <p:outputLabel for="adresse" value="Adresse"/>
+                <p:inputText label="adresse" value="#{ajoutReparateurManaged.reparateur.adresse}" id="adresse">
+                    <f:validator validatorId="AdresseInscriptionValidator"/>
+                </p:inputText>
+                <p:messages    for="adresse" showDetail="true" autoUpdate="true"/>
+
+                <p:outputLabel for="codepostal" value="Code Postal"/>
+                <p:inputText label="codepostal" value="#{ajoutReparateurManaged.reparateur.codepostal}" id="codepostal">
+                    <f:validator validatorId="CodePostalInscriptionValidator"/>
+                </p:inputText>
+                <p:messages    for="codepostal" showDetail="true" autoUpdate="true"/>
+
+                <p:outputLabel for="ville" value="Ville"/>
+                <p:inputText label="ville" value="#{ajoutReparateurManaged.reparateur.ville}" id="ville">
+                    <f:validator validatorId="VilleInscriptionValidator"/>
+                </p:inputText>
+                <p:messages    for="ville" showDetail="true" autoUpdate="true"/>
+
+                <p:outputLabel for="mdp" value="Mot de passe"/>
+                <p:inputText label="mdp" value="#{ajoutReparateurManaged.reparateur.mdp}" id="mdp">
+                    <f:validator validatorId="PasswordInscriptionValidator"/>
+                </p:inputText>
+                <p:messages for="mdp" showDetail="true" autoUpdate="true"/>
+
+                <p:outputLabel for="chargeMax" value="Charge maximale"/>
+                <p:inputText label="chargeMax" value="#{ajoutReparateurManaged.reparateur.chargeMax}" id="chargeMax">
+
+                </p:inputText>
+
+                <!--Choix du département -->
+
+                <p:outputLabel for="menu_dep" value="Localisations" />
+                <p:selectCheckboxMenu id="menu_dep" value="#{ajoutReparateurManaged.departementSelectionne}" label="Département"
+                                      filter="true" filterMatchMode="startsWith" >
+                    <f:selectItems value="#{ajoutReparateurManaged.departement.entrySet()}" var="dep" itemLabel="#{dep.value.numDep} : #{dep.value.designation}" itemValue="#{dep.key}"/>
+                </p:selectCheckboxMenu>
+                
+                <!-- choix des marques -->
+                <p:outputLabel for="menu_mod" value="Modeles" />
+                <p:selectCheckboxMenu id="menu_mod" value="#{ajoutReparateurManaged.marquesSelectionne}" label="Modeles"
+                                      filter="true" filterMatchMode="startsWith" >
+                    <f:selectItems value="#{ajoutReparateurManaged.marques.entrySet()}" var="model" itemLabel="#{model.value.libelle}" itemValue="#{model.key}"/>
+                </p:selectCheckboxMenu>
+
+            </h:panelGrid>
+            <p:commandButton value="Valider"  actionListener="#{ajoutEntrepriseManagedBeans.enregistrer()}"/>
+        </h:form>
+    </div>
+
+</ui:composition>
+

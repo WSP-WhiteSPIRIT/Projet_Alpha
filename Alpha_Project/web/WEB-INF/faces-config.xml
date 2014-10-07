@@ -35,4 +35,9 @@
         <validator-id>PasswordInscriptionValidator</validator-id>
         <validator-class>alpha.vue.validatorCommun.PasswordInscriptionValidator</validator-class>
     </validator>
+    
+     <validator>
+        <validator-id>RaisonSocialeAjoutValidator</validator-id>
+        <validator-class>alpha.vue.pagesAdministrateur.validator.RaisonSocialeAjoutValidator</validator-class>
+    </validator>
 </faces-config>

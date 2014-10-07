@@ -33,8 +33,8 @@ public class Reparateur implements Serializable {
     private int id;
 
     @Basic(optional = false)
-    @Column(name = "nom")
-    private String nom;
+    @Column(name = "raisonSociale")
+    private String raisonSociale;
 
     @Basic(optional = false)
     @Column(name = "adresse")
@@ -116,12 +116,12 @@ public class Reparateur implements Serializable {
         this.devis = devis;
     }
 
-    public String getNom() {
-        return nom;
+    public String getRaisonSociale() {
+        return raisonSociale;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setRaisonSociale(String raisonSociale) {
+        this.raisonSociale = raisonSociale;
     }
 
     public String getAdresse() {
