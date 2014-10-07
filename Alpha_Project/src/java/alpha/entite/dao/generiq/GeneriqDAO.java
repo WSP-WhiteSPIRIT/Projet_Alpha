@@ -144,7 +144,6 @@ public abstract class GeneriqDAO<T> implements IGeneriqDAO<T> {
             System.err.println("isOpen");
             session = session.getSessionFactory().openSession();
         }
-        session = session.getSessionFactory().openSession();
         return session;
     }
    
