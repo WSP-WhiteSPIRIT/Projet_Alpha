@@ -20,4 +20,8 @@ public class ReparateurManager extends GeneriqueManager<Reparateur>{
         dao = new ReparateurDAO();
     }
     
+    public Reparateur getByMail(String mail){
+        ReparateurDAO daotmp = (ReparateurDAO) dao;
+        return daotmp.getByMail(mail);
+    }
 }

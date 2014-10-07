@@ -3,6 +3,18 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+              
+    
+    <!--- Validators pour le login -->
+    <validator>
+        <validator-id>validLogin</validator-id>
+        <validator-class>alpha.vue.validatorCommun.ValidateLogin</validator-class>
+    </validator>
+    <validator>
+        <validator-id>validMdp</validator-id>
+        <validator-class>alpha.vue.validatorCommun.ValidateMDP</validator-class>
+    </validator>
     <validator>
         <validator-id>NomInscriptionValidator</validator-id>
         <validator-class>alpha.vue.pagesPubliques.validator.NomInscriptionValidator</validator-class>

@@ -51,11 +51,11 @@
                 </p:inputText>
                 <p:messages    for="ville" showDetail="true" autoUpdate="true"/>
 
-                <p:outputLabel for="mdp" value="Mot de passe"/>
-                <p:inputText label="mdp" value="#{inscriptionManagedBean.clientParticulier.mdp}" id="mdp">
-                    <f:validator validatorId="PasswordInscriptionValidator"/>
-                </p:inputText>
-                <p:messages for="mdp" showDetail="true" autoUpdate="true"/>
+                    <p:outputLabel for="mdp" value="Mot de passe"/>
+                    <p:password feedback="true" label="mdp" value="#{inscriptionManagedBean.clientParticulier.mdp}" id="mdp">
+                        <f:validator validatorId="PasswordInscriptionValidator"/>
+                    </p:password>
+                    <p:messages for="mdp" showDetail="true" autoUpdate="true"/>
 
                 <p:commandButton value="Valider"  actionListener="#{inscriptionManagedBean.enregistrer()}"/>
             </h:panelGrid>

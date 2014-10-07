@@ -20,4 +20,10 @@ public class ClientEntrepriseManager extends GeneriqueManager<ClientEntreprise>{
         dao= new ClientEntrepriseDAO();
     }
     
+    
+    public ClientEntreprise getByMail(String mail){
+        ClientEntrepriseDAO daotmp = (ClientEntrepriseDAO) dao;
+        return daotmp.getByMail(mail);
+    }
+    
 }
