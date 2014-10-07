@@ -21,9 +21,11 @@ public class VilleInscriptionValidator implements Validator {
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
         String saisie = (String) value;
         if (!saisie.isEmpty()) {
-
+            System.out.println(saisie);
         } else {
-            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_WARN, "Ville invalide", "Ce champ est obligatoire."));
+            throw new ValidatorException(
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur : ", "Le champ \"Ville\" est obligatoire.")
+            );
         }
     }
 

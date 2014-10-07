@@ -21,9 +21,11 @@ public class AdresseInscriptionValidator implements Validator {
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
         String saisie = (String) value;
         if (!saisie.isEmpty()) {
-
+            System.out.println(saisie);
         } else {
-            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_WARN, "Adresse invalide", "Ce champ est obligatoire."));
+            throw new ValidatorException(
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur : ", "Le champ \"Adresse\" est obligatoire.")
+            );
         }
     }
 

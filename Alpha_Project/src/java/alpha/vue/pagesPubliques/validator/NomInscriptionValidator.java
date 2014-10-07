@@ -20,12 +20,12 @@ public class NomInscriptionValidator implements Validator {
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
         String saisie = (String) value;
-        System.out.println("azeazeaze"+saisie);
         if (!saisie.isEmpty()) {
-            
+            System.out.println(saisie);
         } else {
-            System.out.println("qer jgnqerkg bsqelgjberg lb qlrejg bqlul");
-            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_WARN, "Nom invalide", "Ce champ est obligatoire."));
+            throw new ValidatorException(
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur : ", "Le champ \"nom\" est obligatoire.")
+            );
         }
     }
 }
