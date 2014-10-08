@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -30,14 +31,22 @@ public class AjoutReparateurManaged implements Serializable {
     private Reparateur reparateur;
     private ReparateurManager reparateurManager;
     private Map<Integer, DepartementFrance> departement;
-    private List<Integer> departementSelectionne;
+    private List<String> departementSelectionne;
     private Map<Integer, Marque> marques;
-    private List<Integer> marquesSelectionne;
+    private List<String> marquesSelectionne;
 
     /**
      * Creates a new instance of AjoutReparateurManaged
      */
     public AjoutReparateurManaged() {
+        
+        
+    }
+    
+    @PostConstruct
+    public void init(){
+        
+        System.out.println("init managedBean");
         reparateurManager = new ReparateurManager();
         reparateur = new Reparateur();
         
@@ -54,7 +63,6 @@ public class AjoutReparateurManaged implements Serializable {
             marques.put(m.getId(), m);
         }
         marquesSelectionne = new ArrayList<>();
-        
     }
 
     public Map<Integer, Marque> getMarques() {
@@ -65,11 +73,11 @@ public class AjoutReparateurManaged implements Serializable {
         this.marques = marques;
     }
 
-    public List<Integer> getMarquesSelectionne() {
+    public List<String> getMarquesSelectionne() {
         return marquesSelectionne;
     }
 
-    public void setMarquesSelectionne(List<Integer> marquesSelectionne) {
+    public void setMarquesSelectionne(List<String> marquesSelectionne) {
         this.marquesSelectionne = marquesSelectionne;
     }
 
@@ -89,24 +97,25 @@ public class AjoutReparateurManaged implements Serializable {
         this.departement = departement;
     }
 
-    public List<Integer> getDepartementSelectionne() {
+    public List<String> getDepartementSelectionne() {
         return departementSelectionne;
     }
 
-    public void setDepartementSelectionne(List<Integer> departementSelectionne) {
+    public void setDepartementSelectionne(List<String> departementSelectionne) {
         this.departementSelectionne = departementSelectionne;
     }
 
     public void ajoutReparateur() {
         List<DepartementFrance> departementIntervention = new ArrayList<>();
-        for (int key : departementSelectionne) {
-            departementIntervention.add(departement.get(key));
+
+        for (String key : departementSelectionne) {
+            departementIntervention.add(departement.get(Integer.parseInt(key)));
         }
         reparateur.setDepartementFrances(departementIntervention);
-        
+        System.out.println(reparateur.getDepartementFrances());
         List<Marque> marqueIntervention = new ArrayList<>();
-        for (int key : marquesSelectionne) {
-            marqueIntervention.add(marques.get(key));
+        for (String key : marquesSelectionne) {
+            marqueIntervention.add(marques.get(Integer.parseInt(key)));
         }
         reparateur.setMarques(marqueIntervention);
 
