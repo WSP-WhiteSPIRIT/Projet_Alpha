@@ -107,12 +107,15 @@ public class AjoutReparateurManaged implements Serializable {
 
     public void ajoutReparateur() {
         List<DepartementFrance> departementIntervention = new ArrayList<>();
-
+        System.out.println("ajout");
         for (String key : departementSelectionne) {
             departementIntervention.add(departement.get(Integer.parseInt(key)));
         }
         reparateur.setDepartementFrances(departementIntervention);
+        System.out.println("plop");
+        System.out.println(departementIntervention);
         System.out.println(reparateur.getDepartementFrances());
+        System.out.println("plop");
         List<Marque> marqueIntervention = new ArrayList<>();
         for (String key : marquesSelectionne) {
             marqueIntervention.add(marques.get(Integer.parseInt(key)));

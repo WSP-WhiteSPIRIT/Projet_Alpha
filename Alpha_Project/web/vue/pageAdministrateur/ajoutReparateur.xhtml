@@ -5,11 +5,13 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h2>Ajout de réparateur</h2>
 
     <div class="hero-unit">
+
         <h:form>
             <h:panelGrid id="form" columns="3" style="margin-bottom:10px" cellpadding="5">
-                <p:outputLabel for="raisonSocial" value="raison Sociale"/>
+                <p:outputLabel for="raisonSocial" value="Raison Sociale"/>
                 <p:inputText label="raisonSocial" value="#{ajoutReparateurManaged.reparateur.raisonSociale}" id="raisonSocial">
                     <f:validator validatorId="RaisonSocialeAjoutValidator"/>
                 </p:inputText>
@@ -47,7 +49,7 @@
 
                 <p:outputLabel for="mdp" value="Mot de passe"/>
                 <p:inputText label="mdp" value="#{ajoutReparateurManaged.reparateur.mdp}" id="mdp">
-                    <f:validator validatorId="PasswordInscriptionValidator"/>
+    
                 </p:inputText>
                 <p:messages for="mdp" showDetail="true" autoUpdate="true"/>
 

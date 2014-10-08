@@ -32,8 +32,8 @@ public class InscriptionManagedBean implements Serializable {
     }
 
     public void enregistrer() {
-        
-        clientParticulierManager.create(clientParticulier);
+        System.out.println("azert");
+//        clientParticulierManager.create(clientParticulier);
 
     }
 

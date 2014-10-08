@@ -42,10 +42,11 @@ public class Marque implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "marque")
     private Collection<Modele> modeles;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "MARQUE_REPARATEUR", joinColumns = {
-        @JoinColumn(name = "id_marque")}, inverseJoinColumns = {
-        @JoinColumn(name = "id_reparateur")})
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "MARQUE_REPARATEUR", joinColumns = {
+//        @JoinColumn(name = "id_marque")}, inverseJoinColumns = {
+//        @JoinColumn(name = "id_reparateur")})
+    @ManyToMany(mappedBy = "marques")
     private Collection<Reparateur> reparateurs;
 
     public int getId() {
