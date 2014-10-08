@@ -6,15 +6,10 @@
 package alpha.entite.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -22,7 +17,7 @@ import javax.persistence.OneToOne;
  * @author INTI0222
  */
 @Entity
-public class ClientParticulier extends Client implements Serializable{
+public class ClientParticulier extends Client implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -128,7 +123,9 @@ public class ClientParticulier extends Client implements Serializable{
     }
 
     public void setMdp(String mdp) {
-        this.mdp = mdp;
+        if (!mdp.isEmpty()) {
+            this.mdp = mdp;
+        }
     }
 
     public ParticulierEntreprise getParticulierEntreprise() {
@@ -138,6 +135,10 @@ public class ClientParticulier extends Client implements Serializable{
     public void setParticulierEntreprise(ParticulierEntreprise particulierEntreprise) {
         this.particulierEntreprise = particulierEntreprise;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "ClientParticulier{" + "nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", codepostal=" + codepostal + ", ville=" + ville + ", telephone=" + telephone + ", mail=" + mail + ", mdp=" + mdp + ", particulierEntreprise=" + particulierEntreprise + '}';
+    }
+
 }

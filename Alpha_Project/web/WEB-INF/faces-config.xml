@@ -44,7 +44,11 @@
         <validator-class>alpha.vue.validatorCommun.VilleInscriptionValidator</validator-class>
     </validator>
     <validator>
-        <validator-id>PasswordInscriptionValidator</validator-id>
-        <validator-class>alpha.vue.validatorCommun.PasswordInscriptionValidator</validator-class>
+        <validator-id>PasswordVerificationValidator</validator-id>
+        <validator-class>alpha.vue.validatorCommun.PasswordVerificationValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>RaisonSocialeInscriptionValidator</validator-id>
+        <validator-class>alpha.vue.pagesPubliques.validator.RaisonSocialeInscriptionValidator</validator-class>
     </validator>
 </faces-config>

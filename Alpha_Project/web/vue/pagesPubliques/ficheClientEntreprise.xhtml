@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <h:form id="formUpdateClient">
+        <h2>Récapitulatif de votre profil</h2>
+        <div id="updateProfil">
+            <h3>Informations Personnelles</h3>
+
+            <h:panelGrid id="formPerso" columns="3" style="margin-bottom: 10px" cellpadding="5">
+
+                <h:outputLabel for="raisonsociale" value="Raison Sociale: " style="font-weight:bold" />
+                <p:inplace editor="true">
+                    <p:inputText id="raisonsociale" value="#{ficheClientEntrepriseManagedBean.client.raisonSociale}" validator="PrenomInscriptionValidator"/>
+                </p:inplace>
+                <p:messages showDetail="true" autoUpdate="true" closable="true" for="raisonsociale"/>
+            </h:panelGrid>
+
+            <h3>Coordonnées de contacts</h3>
+
+            <h:panelGrid id="formContact" columns="3" style="margin-bottom: 10px" cellpadding="5">
+                <h:outputLabel for="mail" value="Mail: " style="font-weight:bold" />
+                <p:inplace editor="true">
+                    <p:inputText id="mail" value="#{ficheClientEntrepriseManagedBean.client.mail}" validator="MailInscriptionValidator"/>
+                </p:inplace>
+                <p:messages showDetail="true" autoUpdate="true" closable="true" for="mail"/>
+
+                <h:outputLabel for="telephone" value="Telephone: " style="font-weight:bold" />
+                <p:inplace editor="true">
+                    <p:inputText id="telephone" value="#{ficheClientEntrepriseManagedBean.client.telephone}" validator="TelephoneInscriptionValidator"/>
+                </p:inplace>
+                <p:messages showDetail="true" autoUpdate="true" closable="true" for="telephone"/>
+            </h:panelGrid>
+
+            <h3>Adresses</h3>
+
+            <h:panelGrid id="formAdresse" columns="3" style="margin-bottom: 10px" cellpadding="5">
+
+                <h:outputLabel for="adresse" value="Adresse: " style="font-weight:bold" />
+                <p:inplace editor="true">
+                    <p:inputText id="adresse" value="#{ficheClientEntrepriseManagedBean.client.adresse}" validator="AdresseInscriptionValidator"/>
+                </p:inplace>
+                <p:messages showDetail="true" autoUpdate="true" closable="true" for="adresse"/>
+
+                <h:outputLabel for="codepostal" value="Code Postal: " style="font-weight:bold" />
+                <p:inplace editor="true">
+                    <p:inputText id="codepostal" value="#{ficheClientEntrepriseManagedBean.client.codepostal}" validator="CodePostalInscriptionValidator"/>
+                </p:inplace>
+                <p:messages showDetail="true" autoUpdate="true" closable="true" for="codepostal"/>
+
+                <h:outputLabel for="ville" value="Ville: " style="font-weight:bold" />
+                <p:inplace editor="true">
+                    <p:inputText id="ville" value="#{ficheClientEntrepriseManagedBean.client.ville}" validator="VilleInscriptionValidator"/>
+                </p:inplace>
+                <p:messages showDetail="true" autoUpdate="true" closable="true" for="ville"/>
+            </h:panelGrid>
+        </div>
+
+        <p:separator />
+
+        <div  id="validate"> 
+            <p:growl sticky="true" showDetail="true"  autoUpdate="true" life="1" for="button"/>  
+            <p:commandButton id="button" actionListener="#{ficheClientEntrepriseManagedBean.enregistrer()}" validateClient="true" update="formUpdateClient" value="Enregistrer"/>
+        </div> 
+    </h:form>
+</ui:composition>
+
