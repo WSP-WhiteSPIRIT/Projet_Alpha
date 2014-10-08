@@ -122,7 +122,7 @@ public class NewEmptyJUnitTest {
         reparateur.setTelephone("684874");
         
         reparateur.setMail("mail.test");
-        reparateur.setNom("testrep");
+        reparateur.setRaisonSociale("testrep");
         
         GeneriqDAO dao = new ReparateurDAO();
         

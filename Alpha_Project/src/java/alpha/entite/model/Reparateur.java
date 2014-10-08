@@ -11,9 +11,12 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -33,8 +36,8 @@ public class Reparateur implements Serializable {
     private int id;
 
     @Basic(optional = false)
-    @Column(name = "nom")
-    private String nom;
+    @Column(name = "raisonSociale")
+    private String raisonSociale;
 
     @Basic(optional = false)
     @Column(name = "adresse")
@@ -64,10 +67,17 @@ public class Reparateur implements Serializable {
     @Column(name = "chargeMax")
     private int chargeMax;
 
-    @ManyToMany(mappedBy = "reparateurs")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "DEPARTEMENT_REPARATEUR", joinColumns = {
+        @JoinColumn(name = "id_reparateur")}, inverseJoinColumns = {
+        @JoinColumn(name = "id_departementfrance")})
+//    @ManyToMany(mappedBy = "reparateurs")
     private Collection<DepartementFrance> departementFrances;
 
-    @ManyToMany(mappedBy = "reparateurs")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "MARQUE_REPARATEUR", joinColumns = {
+        @JoinColumn(name = "id_reparateur")}, inverseJoinColumns = {
+        @JoinColumn(name = "id_marque")})
     private Collection<Marque> marques;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reparateur")
@@ -116,12 +126,12 @@ public class Reparateur implements Serializable {
         this.devis = devis;
     }
 
-    public String getNom() {
-        return nom;
+    public String getRaisonSociale() {
+        return raisonSociale;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setRaisonSociale(String raisonSociale) {
+        this.raisonSociale = raisonSociale;
     }
 
     public String getAdresse() {
