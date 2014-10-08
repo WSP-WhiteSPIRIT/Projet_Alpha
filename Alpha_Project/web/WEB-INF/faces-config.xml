@@ -8,6 +8,10 @@
     
     <!--- Validators pour le login -->
     <validator>
+        <validator-id>validCout</validator-id>
+        <validator-class>alpha.vue.validatorCommun.ValidateCost</validator-class>
+    </validator>
+    <validator>
         <validator-id>validLogin</validator-id>
         <validator-class>alpha.vue.validatorCommun.ValidateLogin</validator-class>
     </validator>
