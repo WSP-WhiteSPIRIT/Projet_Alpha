@@ -11,6 +11,15 @@
         <Node id="vue/template/layout.xhtml" x="650" y="150" zoom="true"/>
         <Node id="indexTest.xhtml" x="400" y="450" zoom="true"/>
         <Node id="vue/template/header.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="vue/template/sidebar.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="vue/pagesPubliques/accueil.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="vue/template/footer.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="vue/pagesPubliques/login.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="welcomePrimefaces.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="vue/template/layout.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="vue/template/header.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="indexTest.xhtml" x="400" y="450" zoom="true"/>
         <Node id="vue/pagesPubliques/inscription.xhtml" x="150" y="600" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>

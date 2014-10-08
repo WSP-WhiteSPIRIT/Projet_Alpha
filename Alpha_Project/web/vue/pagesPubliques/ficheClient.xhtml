@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="formUpdateClient">
+            <h2>Récapitulatif de votre profil</h2>
+            <div id="updateProfil">
+                <h3>Informations Personnelles</h3>
+
+                <h:panelGrid id="formPerso" columns="3" style="margin-bottom: 10px" cellpadding="5">
+
+                    <h:outputLabel for="nom" value="Nom: " style="font-weight:bold" />
+                    <p:inplace editor="true">
+                        <p:inputText id="nom" value="#{ficheClientManagedBean.client.nom}" validator="NomInscriptionValidator"/>
+                    </p:inplace>
+                    <p:messages showDetail="true" autoUpdate="true" closable="true" for="nom"/>
+
+                    <h:outputLabel for="prenom" value="Prenom: " style="font-weight:bold" />
+                    <p:inplace editor="true">
+                        <p:inputText id="prenom" value="#{ficheClientManagedBean.client.prenom}" validator="PrenomInscriptionValidator"/>
+                    </p:inplace>
+                    <p:messages showDetail="true" autoUpdate="true" closable="true" for="prenom"/>
+                </h:panelGrid>
+
+                <h3>Coordonnées de contacts</h3>
+
+                <h:panelGrid id="formContact" columns="3" style="margin-bottom: 10px" cellpadding="5">
+                    <h:outputLabel for="mail" value="Mail: " style="font-weight:bold" />
+                    <p:inplace editor="true">
+                        <p:inputText id="mail" value="#{ficheClientManagedBean.client.mail}" validator="MailInscriptionValidator"/>
+                    </p:inplace>
+                    <p:messages showDetail="true" autoUpdate="true" closable="true" for="mail"/>
+
+                    <h:outputLabel for="telephone" value="Telephone: " style="font-weight:bold" />
+                    <p:inplace editor="true">
+                        <p:inputText id="telephone" value="#{ficheClientManagedBean.client.telephone}" validator="TelephoneInscriptionValidator"/>
+                    </p:inplace>
+                    <p:messages showDetail="true" autoUpdate="true" closable="true" for="telephone"/>
+                </h:panelGrid>
+
+                <h3>Adresses</h3>
+
+                <h:panelGrid id="formAdresse" columns="3" style="margin-bottom: 10px" cellpadding="5">
+
+                    <h:outputLabel for="adresse" value="Adresse: " style="font-weight:bold" />
+                    <p:inplace editor="true">
+                        <p:inputText id="adresse" value="#{ficheClientManagedBean.client.adresse}" validator="AdresseInscriptionValidator"/>
+                    </p:inplace>
+                    <p:messages showDetail="true" autoUpdate="true" closable="true" for="adresse"/>
+
+                    <h:outputLabel for="codepostal" value="Code Postal: " style="font-weight:bold" />
+                    <p:inplace editor="true">
+                        <p:inputText id="codepostal" value="#{ficheClientManagedBean.client.codepostal}" validator="CodePostalInscriptionValidator"/>
+                    </p:inplace>
+                    <p:messages showDetail="true" autoUpdate="true" closable="true" for="codepostal"/>
+
+                    <h:outputLabel for="ville" value="Ville: " style="font-weight:bold" />
+                    <p:inplace editor="true">
+                        <p:inputText id="ville" value="#{ficheClientManagedBean.client.ville}" validator="VilleInscriptionValidator"/>
+                    </p:inplace>
+                    <p:messages showDetail="true" autoUpdate="true" closable="true" for="ville"/>
+                </h:panelGrid>
+            </div>
+
+            <p:separator />
+
+            <h2>Saisie d'un nouveau mot de passe</h2>
+
+            <div  id="updatePassword">           
+
+                <p:messages id="messages" showDetail="true" autoUpdate="true" />
+
+                <h:panelGrid columns="2" id="matchGrid" cellpadding="5">                   
+                    <h:outputLabel for="pwd1" value="Mot de passe: " />
+                    <p:password 
+                        id="pwd1" 
+                        binding="#{pwd_new}">
+                    </p:password>
+
+                    <h:outputLabel for="pwd2" value="Vérification: " />
+                    <p:password 
+                        id="pwd2" 
+                        value="#{ficheClientManagedBean.password_validation}"
+                        validator="PasswordInscriptionValidator" >
+                        <f:attribute name="pwd_new_param" value="#{pwd_new}"/>
+                    </p:password>
+
+                    <p:commandButton validateClient="true" update="matchGrid" value="Valider"/>
+                </h:panelGrid>
+
+            </div>
+
+            <p:commandButton actionListener="#{ficheClientManagedBean.enregistrer()}" validateClient="true" update="formUpdateClient" value="Enregistrer"/>
+        </h:form>
+    </h:body>
+</html>
+

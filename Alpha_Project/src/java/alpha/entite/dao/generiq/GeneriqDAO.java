@@ -52,7 +52,7 @@ public abstract class GeneriqDAO<T> implements IGeneriqDAO<T> {
         session = getSession();
         try {
             transaction = session.beginTransaction();
-            session.update(entity);
+            session.saveOrUpdate(entity);
             transaction.commit();
         } catch (HibernateException hex) {
             throw new HibernateException(hex.getCause());
@@ -144,7 +144,6 @@ public abstract class GeneriqDAO<T> implements IGeneriqDAO<T> {
             System.err.println("isOpen");
             session = session.getSessionFactory().openSession();
         }
-        session = session.getSessionFactory().openSession();
         return session;
     }
    
