@@ -113,10 +113,9 @@ public abstract class GeneriqDAO<T> implements IGeneriqDAO<T> {
 
    @Override
     public T getById(int id) {
-        /*session = getSession();
+        session = getSession();
         String req = String.format("FROM %s WHERE %s = :id",getTTypeName(),"id_"+getTTypeName());
-        return (T) session.createQuery(req).setInteger("id", id).uniqueResult();*/
-        return null;
+        return (T) session.createQuery(req).setInteger("id", id).uniqueResult();
     }
 
     @Override
