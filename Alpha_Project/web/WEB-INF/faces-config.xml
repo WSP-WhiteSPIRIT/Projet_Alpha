@@ -8,6 +8,10 @@
     
     <!--- Validators pour le login -->
     <validator>
+        <validator-id>validCout</validator-id>
+        <validator-class>alpha.vue.validatorCommun.ValidateCost</validator-class>
+    </validator>
+    <validator>
         <validator-id>validLogin</validator-id>
         <validator-class>alpha.vue.validatorCommun.ValidateLogin</validator-class>
     </validator>
@@ -50,5 +54,10 @@
     <validator>
         <validator-id>RaisonSocialeInscriptionValidator</validator-id>
         <validator-class>alpha.vue.pagesPubliques.validator.RaisonSocialeInscriptionValidator</validator-class>
+    </validator>
+    
+     <validator>
+        <validator-id>RaisonSocialeAjoutValidator</validator-id>
+        <validator-class>alpha.vue.pagesAdministrateur.validator.RaisonSocialeAjoutValidator</validator-class>
     </validator>
 </faces-config>

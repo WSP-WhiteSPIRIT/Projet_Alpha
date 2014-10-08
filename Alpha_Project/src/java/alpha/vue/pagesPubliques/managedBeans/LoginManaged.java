@@ -63,7 +63,7 @@ public class LoginManaged {
         this.mdp = mdp;
     }
     
-    public void login(){
+    public void login() throws Exception{
         ExternalContext ex = FacesContext.getCurrentInstance().getExternalContext();
         
         
@@ -74,7 +74,7 @@ public class LoginManaged {
                 ex.getSessionMap().put("connectedClient",cp);
                 ex.getSessionMap().put("role","ClientParticulier");
             }else{
-                //add Error Invalid mdp
+                throw new Exception("Mot de passe erroné");
             }
         }else{
             ReparateurManager reparateurManager = new ReparateurManager();
@@ -84,7 +84,7 @@ public class LoginManaged {
                     ex.getSessionMap().put("connectedClient",rp);
                     ex.getSessionMap().put("role","Reparateur");
                 }else{
-                    //add Error Invalid mdp
+                    throw new Exception("Mot de passe invalide");
                 }
             }else{
                 ClientEntrepriseManager clientEManager = new ClientEntrepriseManager();
@@ -94,7 +94,7 @@ public class LoginManaged {
                         ex.getSessionMap().put("connectedClient",ce);
                         ex.getSessionMap().put("role","ClientEntreprise");
                     }else{
-                        //add Error Invalid mdp
+                        throw new Exception("Mot de passe invalide");
                     }
                 }else{
                     AdministrateurManager adminManager = new AdministrateurManager();
@@ -104,10 +104,10 @@ public class LoginManaged {
                             ex.getSessionMap().put("connectedClient",ad);
                             ex.getSessionMap().put("role","Administrateur");
                         }else{
-                            //add Error Invalid mdp
+                            throw new Exception("Mot de passe invalide");
                         }
                         }else{
-                        //add Error Invalid mail
+                        throw new Exception("Mail non reconnu");
                     }
                 }
             }
