@@ -16,6 +16,6 @@
         </h:inputText>
         <h:message styleClass="errors" for="mdp"/>
         
-        <h:commandButton value="Connexion" class="submit"></h:commandButton>
+        <h:commandButton value="Connexion" class="submit" actionListener="#{loginManaged.login()}"></h:commandButton>
     </h:form>
 </ui:composition>

@@ -47,7 +47,7 @@ public class AlgorithmeReparateur {
         List<Reparateur> reparateursMarque = new ArrayList<Reparateur>() ;
         for (Reparateur reparateur : reparateursPotentiels) {
             for (Marque marqueRep : reparateur.getMarques()) {
-                if(marqueRep.equals(marque)){
+                if(marqueRep.getLibelle().equals(marque.getLibelle())){
                     reparateursMarque.add(reparateur);
                 }
             }
@@ -55,7 +55,7 @@ public class AlgorithmeReparateur {
         
         for (Reparateur reparateur : reparateursMarque) {
             for (DepartementFrance departementRep : reparateur.getDepartementFrances()) {
-                if(departementRep.equals(departement)){
+                if(departementRep.getDesignation().equals(departement.getDesignation())){
                     reparateursDisponibles.add(reparateur);
                 }
             }
