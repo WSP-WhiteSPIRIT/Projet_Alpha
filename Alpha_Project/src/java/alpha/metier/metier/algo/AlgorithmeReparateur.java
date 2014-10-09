@@ -11,11 +11,8 @@ import alpha.entite.model.Etat;
 import alpha.entite.model.Marque;
 import alpha.entite.model.Reparateur;
 import alpha.entite.model.Reparation;
-import alpha.metier.modelManager.ForfaitManager;
 import alpha.metier.modelManager.ReparateurManager;
-import alpha.metier.modelManager.ReparationManager;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -46,16 +43,21 @@ public class AlgorithmeReparateur {
     private void selectReparateursDisponibles(Marque marque, DepartementFrance departement){
         List<Reparateur> reparateursMarque = new ArrayList<Reparateur>() ;
         for (Reparateur reparateur : reparateursPotentiels) {
-            for (Marque marqueRep : reparateur.getMarques()) {
-                if(marqueRep.getLibelle().equals(marque.getLibelle())){
+            Reparateur rep = new ReparateurManager().getById(reparateur.getId());
+            System.out.println("selectReparateursDisponibles : "+rep.getRaisonSociale());
+            for (Marque marqueRep : rep.getMarques()) {
+                if(marqueRep.getId()== marque.getId()){
                     reparateursMarque.add(reparateur);
                 }
             }
         }
         
         for (Reparateur reparateur : reparateursMarque) {
-            for (DepartementFrance departementRep : reparateur.getDepartementFrances()) {
-                if(departementRep.getDesignation().equals(departement.getDesignation())){
+
+
+            Reparateur rep = new ReparateurManager().getById(reparateur.getId());
+            for (DepartementFrance departementRep : rep.getDepartementFrances()) {
+                if(departementRep.getNumDep().equals(departement.getNumDep())){
                     reparateursDisponibles.add(reparateur);
                 }
             }
@@ -80,7 +82,8 @@ public class AlgorithmeReparateur {
 
     private int getChargeReparateur(Reparateur reparateur) {
         int charge = 0;
-        for (Reparation reparation : reparateur.getReparations()) {
+        Reparateur rep= new ReparateurManager().getById(reparateur.getId());
+        for (Reparation reparation : rep.getReparations()) {
             if(reparation.getEtat()!=Etat.REPARATION_TERMINEE&&reparation.getEtat()!=Etat.LIVRAISON){
                 charge++;
             }
