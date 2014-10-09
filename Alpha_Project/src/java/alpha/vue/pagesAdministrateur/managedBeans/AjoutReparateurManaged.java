@@ -49,7 +49,6 @@ public class AjoutReparateurManaged implements Serializable {
         System.out.println("init managedBean");
         reparateurManager = new ReparateurManager();
         reparateur = new Reparateur();
-        
         DepartementFranceManager departementFranceManager = new DepartementFranceManager();
         departement = new HashMap<Integer, DepartementFrance>();
         for (DepartementFrance df : departementFranceManager.getAll()) {
@@ -105,7 +104,7 @@ public class AjoutReparateurManaged implements Serializable {
         this.departementSelectionne = departementSelectionne;
     }
 
-    public void ajoutReparateur() {
+    /*public void ajoutReparateur() {
         List<DepartementFrance> departementIntervention = new ArrayList<>();
         System.out.println("ajout");
         for (String key : departementSelectionne) {
@@ -123,6 +122,6 @@ public class AjoutReparateurManaged implements Serializable {
         reparateur.setMarques(marqueIntervention);
 
         reparateurManager.create(reparateur);
-    }    
+    }    */
     
 }
