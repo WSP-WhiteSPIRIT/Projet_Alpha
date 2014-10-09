@@ -7,16 +7,18 @@ package alpha.vue.pagesClient.managedBeans;
 
 import alpha.entite.model.ClientParticulier;
 import alpha.metier.modelManager.ClientParticulierManager;
+import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 /**
  *
  * @author INTI0224
  */
-@RequestScoped
+@SessionScoped
 @ManagedBean
 public class InscriptionManagedBean implements Serializable {
 
@@ -31,24 +33,30 @@ public class InscriptionManagedBean implements Serializable {
         clientParticulier = new ClientParticulier();
     }
 
-    public void enregistrer() {
-        System.out.println("azert");
-//        clientParticulierManager.create(clientParticulier);
+    public String enregistrer() throws IOException {
+        System.out.println("InscriptionManagedBean:enregistrer");
+        clientParticulierManager.create(clientParticulier);
+        ExternalContext ex = FacesContext.getCurrentInstance().getExternalContext();
 
+        ex.getSessionMap().put("connectedClient", clientParticulier);
+        ex.getSessionMap().put("role", "ClientParticulier");
+
+        return  "indexTest";
     }
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
     public ClientParticulierManager getClientParticulierManager() {
         return clientParticulierManager;
     }
-    
+
     public void setClientParticulierManager(ClientParticulierManager clientParticulierManager) {
         this.clientParticulierManager = clientParticulierManager;
     }
+
     public ClientParticulier getClientParticulier() {
         return clientParticulier;
     }
-    
+
     public void setClientParticulier(ClientParticulier clientParticulier) {
         this.clientParticulier = clientParticulier;
     }
