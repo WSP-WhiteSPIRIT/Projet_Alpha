@@ -41,7 +41,7 @@ public class InscriptionManagedBean implements Serializable {
         ex.getSessionMap().put("connectedClient", clientParticulier);
         ex.getSessionMap().put("role", "ClientParticulier");
 
-        return  "indexTest";
+        return  "indexTest2"; //todo redirection correct
     }
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">

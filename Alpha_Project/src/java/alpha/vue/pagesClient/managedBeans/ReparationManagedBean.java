@@ -1,10 +1,10 @@
+package alpha.vue.pagesClient.managedBeans;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import alpha.entite.model.Reparation;
 import alpha.entite.model.Categorie;
 import alpha.entite.model.Client;
@@ -88,7 +88,7 @@ public class ReparationManagedBean implements Serializable {
         client = (Client) ex.getSessionMap().get("connectedClient");
         role = (String) ex.getSessionMap().get("role");
 
-        System.out.println("Type du client : "+client.getClass().getSimpleName());
+        System.out.println("Type du client : " + client.getClass().getSimpleName());
 
         if (client == null) {
             System.out.println("//TODO : redirection si le client n'est pas connecte"); //TODO : redirection si le client n'est pas connecte
@@ -142,18 +142,25 @@ public class ReparationManagedBean implements Serializable {
         etape = 2;
         Marque marque = new MarqueManager().getById(idMarque);
         Collection<Modele> colModDeMar = marque.getModeles();
-        
+        System.out.println("colModDeMar " + colModDeMar.size());
         Categorie categorie = new CategorieManager().getById(idCategorie);
         Collection<Modele> colModDeCat = categorie.getModeles();
-        
+        System.out.println("colModDeCat " + colModDeCat.size());
+
         modeles.clear();
         for (Modele modDeMar : colModDeMar) {
+            System.out.println("Modele colModDeMar : " + modDeMar.getId() + " " + modDeMar.getLibelle());
             for (Modele modDeCat : colModDeCat) {
-                if(modDeMar.getId() == modDeCat.getId()){
+                System.out.println("Modele modDeCat : " + modDeCat.getId() + " " + modDeCat.getLibelle());
+
+                if (modDeMar.getId() == modDeCat.getId()) {
+                    System.out.println("OK");
                     modeles.put(modDeCat.getId(), modDeCat);
+                }else{
+                    System.out.println("NOK");
                 }
             }
-            
+
         }
         //System.out.println(selectionCategorie.getId());
     }
@@ -220,7 +227,7 @@ public class ReparationManagedBean implements Serializable {
             ex.getSessionMap().put("reparation", reparation);
         }
 //        new ModeleManager().create(m);
-        return "index";
+        return "indexTest";
     }
 
     public Reparation getReparation() {
