@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+
+    Formulaire de demande de réparation
+    <h:form id="display">
+        <p:panelGrid columns="2"  style="margin-bottom:10px">
+            <p:outputLabel for="categorie" value="Selectionnez une catégorie" />
+            <p:selectOneMenu id="categorie" value="#{reparationManagedBean.idCategorie}" style="width:150px"  >
+                <p:ajax listener="#{reparationManagedBean.refreshMarques}" update="display" />
+                <f:selectItem itemLabel="Catégorie" itemValue="-1" noSelectionOption="true" />
+                <f:selectItems value="#{reparationManagedBean.categories}" var="value" itemValue="#{value.id}"  itemLabel="#{value.libelle}" />
+            </p:selectOneMenu>
+
+            <p:outputLabel for="marque" value="Selectionnez une marque" rendered="#{reparationManagedBean.etape >=1}" />
+            <p:selectOneMenu id="marque" value="#{reparationManagedBean.idMarque}" style="width:150px" rendered="#{reparationManagedBean.etape >=1}">
+                <p:ajax listener="#{reparationManagedBean.refreshModeles}" update="display" />
+                <f:selectItem itemLabel="Marque" itemValue="-1" noSelectionOption="true" />
+                <f:selectItems value="#{reparationManagedBean.marques}" var="value" itemValue="#{value.id}"  itemLabel="#{value.libelle}"/>
+            </p:selectOneMenu>
+
+            <p:outputLabel for="modele" value="Selectionnez un modèle" rendered="#{reparationManagedBean.etape >=2}"/>
+            <p:selectOneMenu id="modele" value="#{reparationManagedBean.idModele}" style="width:150px" rendered="#{reparationManagedBean.etape >=2}">
+                <p:ajax listener="#{reparationManagedBean.refreshForfait}" update="display"/>
+                <f:selectItem itemLabel="Modèle" itemValue="-1" noSelectionOption="true" />
+                <f:selectItems value="#{reparationManagedBean.modeles}" var="value" itemValue="#{value.id}"  itemLabel="#{value.libelle}"/>
+            </p:selectOneMenu>
+
+            <p:outputLabel for="forfait" value="Selectionner votre forfait"  rendered="#{reparationManagedBean.etape >=3}"/>
+            <p:selectOneListbox id="forfait" value="#{reparationManagedBean.idForfait}" rendered="#{reparationManagedBean.etape >=3}">
+                <p:ajax listener="#{reparationManagedBean.refreshValide}" update="display"/>
+                <f:selectItem itemLabel="Forfait" itemValue="-1" noSelectionOption="true" />
+                <f:selectItems value="#{reparationManagedBean.forfaits}" var="value" itemValue="#{value.id}"  itemLabel="#{value.libelle}"/>
+            </p:selectOneListbox>
+
+            <p:outputLabel for="description" value="Description du probleme"  rendered="#{reparationManagedBean.etape >=3}"/>
+            <p:inputTextarea id="description" rendered="#{reparationManagedBean.etape >=3}" value="#{reparationManagedBean.reparation.descriptionReparation}"/>
+
+            <p:outputLabel for="adresse" value="Adresse de livraison"  rendered="#{reparationManagedBean.etape >=3}"/>
+            <p:inputText id="adresse" rendered="#{reparationManagedBean.etape >=3}" value="#{reparationManagedBean.reparation.adresseLivraison}"/>
+
+            <p:outputLabel for="cp" value="Code postale"  rendered="#{reparationManagedBean.etape >=3}"/>
+            <p:inputText id="cp" rendered="#{reparationManagedBean.etape >=3}" value="#{reparationManagedBean.reparation.codePostalLivraison}"/>
+
+            <p:outputLabel for="ville" value="Ville"  rendered="#{reparationManagedBean.etape >=3}"/>
+            <p:inputText id="ville" rendered="#{reparationManagedBean.etape >=3}" value="#{reparationManagedBean.reparation.villeLivraison}"/>
+
+
+        </p:panelGrid>
+        <p:commandButton id="valide" value="Valider" action="#{reparationManagedBean.valider}" disabled="#{reparationManagedBean.etape lt 4}"/>
+    </h:form>
+
+
+</ui:composition>
