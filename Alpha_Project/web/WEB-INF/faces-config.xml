@@ -28,6 +28,10 @@
         <validator-class>alpha.vue.pagesPubliques.validator.PrenomInscriptionValidator</validator-class>
     </validator>
     <validator>
+        <validator-id>PasswordInscriptionClientValidator</validator-id>
+        <validator-class>alpha.vue.pagesPubliques.validator.PasswordInscriptionClientValidator</validator-class>
+    </validator>
+    <validator>
         <validator-id>MailInscriptionValidator</validator-id>
         <validator-class>alpha.vue.validatorCommun.MailInscriptionValidator</validator-class>
     </validator>
