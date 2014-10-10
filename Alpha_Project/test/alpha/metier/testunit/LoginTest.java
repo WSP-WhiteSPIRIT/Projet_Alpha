@@ -58,7 +58,7 @@ public class LoginTest {
         lm.setMail("test@test");
         lm.setMdp("test");
         
-        lm.login();
+//        lm.login();
         
         ExternalContext ex = FacesContext.getCurrentInstance().getExternalContext();
         
